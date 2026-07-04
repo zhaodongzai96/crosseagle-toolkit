@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrossEagle AI Toolkit - 跨境电商智能工具箱</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo" onclick="showPage('home')">
+                <span class="logo-icon">🦅</span>
+                <span class="logo-text">CrossEagle AI</span>
+            </div>
+            <div class="nav-links">
+                <a href="#" onclick="showPage('home'); return false;" class="nav-link active" data-page="home">首页</a>
+                <a href="#" onclick="showPage('listing'); return false;" class="nav-link" data-page="listing">Listing优化</a>
+                <a href="#" onclick="showPage('trend'); return false;" class="nav-link" data-page="trend">选品分析</a>
+                <a href="#" onclick="showPage('customer'); return false;" class="nav-link" data-page="customer">客服话术</a>
+                <a href="#" onclick="showPage('compliance'); return false;" class="nav-link" data-page="compliance">合规检查</a>
+            </div>
+            <div class="nav-cta">
+                <span class="beta-badge">BETA</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首页 -->
+    <section id="page-home" class="page active">
+        <div class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    AI 驱动的跨境电商工具箱
+                </div>
+                <h1 class="hero-title">
+                    让跨境运营
+                    <span class="gradient-text">更智能、更高效</span>
+                </h1>
+                <p class="hero-desc">
+                    4 大 AI 工具，覆盖 Listing 优化、选品分析、客服话术、合规检查，
+                    帮你一站式解决跨境电商运营痛点。
+                </p>
+                <div class="hero-actions">
+                    <button class="btn btn-primary" onclick="showPage('listing')">
+                        立即体验
+                        <span class="btn-arrow">→</span>
+                    </button>
+                    <button class="btn btn-secondary" onclick="scrollToTools()">
+                        了解更多
+                    </button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-num">4+</div>
+                        <div class="stat-label">AI 工具模块</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-num">12</div>
+                        <div class="stat-label">支持市场</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-num">8</div>
+                        <div class="stat-label">语言版本</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <!-- 背景光晕 -->
+                <div class="hero-glow glow-1"></div>
+                <div class="hero-glow glow-2"></div>
+                <div class="hero-glow glow-3"></div>
+
+                <!-- 粒子背景 -->
+                <div class="hero-particles">
+                    <div class="particle particle-1"></div>
+                    <div class="particle particle-2"></div>
+                    <div class="particle particle-3"></div>
+                    <div class="particle particle-4"></div>
+                    <div class="particle particle-5"></div>
+                    <div class="particle particle-6"></div>
+                </div>
+
+                <!-- 连接线 SVG -->
+                <svg class="connection-lines" viewBox="0 0 400 400">
+                    <defs>
+                        <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#6366f1;stop-opacity:0.6" />
+                            <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:0.6" />
+                        </linearGradient>
+                    </defs>
+                    <path class="connection-line line-1" d="M 200 200 L 60 80" stroke="url(#lineGradient)" fill="none"/>
+                    <path class="connection-line line-2" d="M 200 200 L 340 80" stroke="url(#lineGradient)" fill="none"/>
+                    <path class="connection-line line-3" d="M 200 200 L 60 320" stroke="url(#lineGradient)" fill="none"/>
+                    <path class="connection-line line-4" d="M 200 200 L 340 320" stroke="url(#lineGradient)" fill="none"/>
+                </svg>
+
+                <!-- 中心核心节点 -->
+                <div class="core-node">
+                    <div class="core-ring ring-1"></div>
+                    <div class="core-ring ring-2"></div>
+                    <div class="core-ring ring-3"></div>
+                    <div class="core-center">
+                        <span class="core-icon">🦅</span>
+                        <span class="core-label">AI</span>
+                    </div>
+                </div>
+
+                <!-- 四个功能卡片 -->
+                <div class="floating-card card-1">
+                    <div class="card-glow"></div>
+                    <div class="card-icon-wrapper">
+                        <div class="card-icon">📝</div>
+                    </div>
+                    <div class="card-title">Listing 优化</div>
+                    <div class="card-sub">关键词覆盖提升 85%</div>
+                    <div class="card-pulse"></div>
+                </div>
+                <div class="floating-card card-2">
+                    <div class="card-glow"></div>
+                    <div class="card-icon-wrapper">
+                        <div class="card-icon">📊</div>
+                    </div>
+                    <div class="card-title">选品趋势</div>
+                    <div class="card-sub">实时洞察市场动态</div>
+                    <div class="card-pulse"></div>
+                </div>
+                <div class="floating-card card-3">
+                    <div class="card-glow"></div>
+                    <div class="card-icon-wrapper">
+                        <div class="card-icon">💬</div>
+                    </div>
+                    <div class="card-title">客服话术</div>
+                    <div class="card-sub">多语言智能回复</div>
+                    <div class="card-pulse"></div>
+                </div>
+                <div class="floating-card card-4">
+                    <div class="card-glow"></div>
+                    <div class="card-icon-wrapper">
+                        <div class="card-icon">🛡️</div>
+                    </div>
+                    <div class="card-title">合规检查</div>
+                    <div class="card-sub">风险一键扫描</div>
+                    <div class="card-pulse"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tools-section" class="tools-section">
+            <div class="section-header">
+                <h2>四大核心工具</h2>
+                <p>覆盖跨境电商运营全流程，AI 赋能每一个环节</p>
+            </div>
+            <div class="tools-grid">
+                <div class="tool-card" onclick="showPage('listing')">
+                    <div class="tool-icon tool-icon-1">
+                        <span>✍️</span>
+                    </div>
+                    <h3>AI Listing 优化助手</h3>
+                    <p>输入产品信息，自动生成多平台、多语言、关键词优化的商品标题与描述，提升搜索排名与转化率。</p>
+                    <div class="tool-tags">
+                        <span class="tag">多平台</span>
+                        <span class="tag">多语言</span>
+                        <span class="tag">SEO优化</span>
+                    </div>
+                    <div class="tool-action">
+                        立即使用 →
+                    </div>
+                </div>
+
+                <div class="tool-card" onclick="showPage('trend')">
+                    <div class="tool-icon tool-icon-2">
+                        <span>📈</span>
+                    </div>
+                    <h3>选品趋势分析器</h3>
+                    <p>输入品类关键词，AI 总结品类趋势、竞品定价区间、市场机会点，让选品决策更科学。</p>
+                    <div class="tool-tags">
+                        <span class="tag">趋势分析</span>
+                        <span class="tag">竞品分析</span>
+                        <span class="tag">定价参考</span>
+                    </div>
+                    <div class="tool-action">
+                        立即使用 →
+                    </div>
+                </div>
+
+                <div class="tool-card" onclick="showPage('customer')">
+                    <div class="tool-icon tool-icon-3">
+                        <span>💬</span>
+                    </div>
+                    <h3>跨境客服话术生成器</h3>
+                    <p>根据买家询盘或问题，自动生成多语言、得体的回复模板，提升响应速度与客户满意度。</p>
+                    <div class="tool-tags">
+                        <span class="tag">多语言</span>
+                        <span class="tag">场景模板</span>
+                        <span class="tag">情感分析</span>
+                    </div>
+                    <div class="tool-action">
+                        立即使用 →
+                    </div>
+                </div>
+
+                <div class="tool-card" onclick="showPage('compliance')">
+                    <div class="tool-icon tool-icon-4">
+                        <span>🛡️</span>
+                    </div>
+                    <h3>合规检查小工具</h3>
+                    <p>输入商品描述，一键检测目标市场的常见合规风险点，避免违规下架与罚款。</p>
+                    <div class="tool-tags">
+                        <span class="tag">风险扫描</span>
+                        <span class="tag">多国合规</span>
+                        <span class="tag">整改建议</span>
+                    </div>
+                    <div class="tool-action">
+                        立即使用 →
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">🦅</span>
+                    <span class="logo-text">CrossEagle AI Toolkit</span>
+                </div>
+                <p class="footer-desc">AI 驱动的跨境电商智能工具箱，让出海更简单。</p>
+                <p class="footer-copy">© 2026 CrossEagle AI · TRAE AI 创造力大赛参赛作品</p>
+            </div>
+        </footer>
+    </section>
+
+    <!-- Listing 优化页面 -->
+    <section id="page-listing" class="page">
+        <div class="tool-page">
+            <div class="tool-page-header">
+                <div class="tool-page-icon">✍️</div>
+                <div>
+                    <h1>AI Listing 优化助手</h1>
+                    <p>输入产品信息，AI 自动生成多平台、多语言、关键词优化的商品标题与描述</p>
+                </div>
+            </div>
+
+            <div class="tool-layout">
+                <div class="tool-input">
+                    <h3>产品信息</h3>
+                    
+                    <div class="form-group">
+                        <label>产品名称 <span class="required">*</span></label>
+                        <input type="text" id="productName" placeholder="例如：无线蓝牙耳机" class="form-input">
+                    </div>
+
+                    <div class="form-group">
+                        <label>产品卖点 / 特性 <span class="required">*</span></label>
+                        <textarea id="productFeatures" rows="4" placeholder="每行一个卖点，例如：&#10;30小时超长续航&#10;主动降噪功能&#10;IPX5防水等级" class="form-input"></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>目标平台</label>
+                            <select id="targetPlatform" class="form-input">
+                                <option value="amazon">Amazon</option>
+                                <option value="shopee">Shopee</option>
+                                <option value="lazada">Lazada</option>
+                                <option value="tiktok">TikTok Shop</option>
+                                <option value="ebay">eBay</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>目标市场</label>
+                            <select id="targetMarket" class="form-input">
+                                <option value="us">美国</option>
+                                <option value="uk">英国</option>
+                                <option value="de">德国</option>
+                                <option value="jp">日本</option>
+                                <option value="se">东南亚</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>语言</label>
+                            <select id="targetLanguage" class="form-input">
+                                <option value="en">英语</option>
+                                <option value="de">德语</option>
+                                <option value="fr">法语</option>
+                                <option value="es">西班牙语</option>
+                                <option value="jp">日语</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>风格</label>
+                            <select id="contentStyle" class="form-input">
+                                <option value="professional">专业商务</option>
+                                <option value="casual">轻松活泼</option>
+                                <option value="luxury">高端奢华</option>
+                                <option value="tech">科技感</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>目标关键词（可选）</label>
+                        <input type="text" id="targetKeywords" placeholder="用逗号分隔，例如：bluetooth earbuds, wireless headphones" class="form-input">
+                    </div>
+
+                    <button class="btn btn-primary btn-full" onclick="generateListing()">
+                        <span class="btn-icon">⚡</span>
+                        生成优化 Listing
+                    </button>
+                </div>
+
+                <div class="tool-output">
+                    <div class="output-header">
+                        <h3>生成结果</h3>
+                        <div class="output-actions">
+                            <button class="btn-icon-sm" onclick="copyResult('listing')" title="复制全部">📋</button>
+                            <button class="btn-icon-sm" onclick="regenerateListing()" title="重新生成">🔄</button>
+                        </div>
+                    </div>
+
+                    <div id="listingOutput" class="output-content">
+                        <div class="output-placeholder">
+                            <div class="placeholder-icon">✨</div>
+                            <p>填写左侧产品信息，点击"生成优化 Listing"开始</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 选品趋势页面 -->
+    <section id="page-trend" class="page">
+        <div class="tool-page">
+            <div class="tool-page-header">
+                <div class="tool-page-icon">📈</div>
+                <div>
+                    <h1>选品趋势分析器</h1>
+                    <p>输入品类关键词，AI 总结品类趋势、竞品定价、市场机会点</p>
+                </div>
+            </div>
+
+            <div class="tool-layout">
+                <div class="tool-input">
+                    <h3>分析设置</h3>
+                    
+                    <div class="form-group">
+                        <label>品类关键词 <span class="required">*</span></label>
+                        <input type="text" id="nicheKeyword" placeholder="例如：wireless earbuds（无线蓝牙耳机）" class="form-input">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>目标市场</label>
+                            <select id="trendMarket" class="form-input">
+                                <option value="us">美国</option>
+                                <option value="eu">欧洲</option>
+                                <option value="jp">日本</option>
+                                <option value="se">东南亚</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>分析平台</label>
+                            <select id="trendPlatform" class="form-input">
+                                <option value="amazon">Amazon</option>
+                                <option value="tiktok">TikTok Shop</option>
+                                <option value="shopee">Shopee</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>分析维度</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="trend" checked>
+                                <span>市场趋势</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="pricing" checked>
+                                <span>竞品定价</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="competition" checked>
+                                <span>竞争格局</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="opportunity" checked>
+                                <span>机会点</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary btn-full" onclick="generateTrend()">
+                        <span class="btn-icon">⚡</span>
+                        生成趋势分析报告
+                    </button>
+                </div>
+
+                <div class="tool-output">
+                    <div class="output-header">
+                        <h3>分析报告</h3>
+                        <div class="output-actions">
+                            <button class="btn-icon-sm" onclick="copyResult('trend')" title="复制全部">📋</button>
+                            <button class="btn-icon-sm" onclick="regenerateTrend()" title="重新生成">🔄</button>
+                        </div>
+                    </div>
+
+                    <div id="trendOutput" class="output-content">
+                        <div class="output-placeholder">
+                            <div class="placeholder-icon">📊</div>
+                            <p>输入品类关键词，点击"生成趋势分析报告"开始</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 客服话术页面 -->
+    <section id="page-customer" class="page">
+        <div class="tool-page">
+            <div class="tool-page-header">
+                <div class="tool-page-icon">💬</div>
+                <div>
+                    <h1>跨境客服话术生成器</h1>
+                    <p>根据买家询盘，自动生成多语言、得体的回复模板</p>
+                </div>
+            </div>
+
+            <div class="tool-layout">
+                <div class="tool-input">
+                    <h3>询盘信息</h3>
+                    
+                    <div class="form-group">
+                        <label>场景类型</label>
+                        <select id="csScenario" class="form-input" onchange="fillSampleMessage()">
+                            <option value="custom">自定义输入</option>
+                            <option value="shipping">物流查询</option>
+                            <option value="return">退货退款</option>
+                            <option value="product">产品咨询</option>
+                            <option value="complaint">投诉差评</option>
+                            <option value="review">催评邀评</option>
+                            <option value="discount">议价/优惠</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>买家消息 <span class="required">*</span></label>
+                        <textarea id="buyerMessage" rows="6" placeholder="粘贴买家的原始消息..." class="form-input"></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>回复语言</label>
+                            <select id="csLanguage" class="form-input">
+                                <option value="en">英语</option>
+                                <option value="de">德语</option>
+                                <option value="fr">法语</option>
+                                <option value="es">西班牙语</option>
+                                <option value="jp">日语</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>语气风格</label>
+                            <select id="csTone" class="form-input">
+                                <option value="friendly">友好亲切</option>
+                                <option value="professional">专业正式</option>
+                                <option value="apologetic">诚恳道歉</option>
+                                <option value="concise">简洁高效</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>订单号（可选）</label>
+                        <input type="text" id="csOrderId" placeholder="例如：AMZ-2026-001234" class="form-input">
+                    </div>
+
+                    <button class="btn btn-primary btn-full" onclick="generateCustomerService()">
+                        <span class="btn-icon">⚡</span>
+                        生成回复话术
+                    </button>
+                </div>
+
+                <div class="tool-output">
+                    <div class="output-header">
+                        <h3>生成结果</h3>
+                        <div class="output-actions">
+                            <button class="btn-icon-sm" onclick="copyResult('customer')" title="复制全部">📋</button>
+                            <button class="btn-icon-sm" onclick="regenerateCustomer()" title="重新生成">🔄</button>
+                        </div>
+                    </div>
+
+                    <div id="customerOutput" class="output-content">
+                        <div class="output-placeholder">
+                            <div class="placeholder-icon">💬</div>
+                            <p>输入买家询盘，点击"生成回复话术"开始</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 合规检查页面 -->
+    <section id="page-compliance" class="page">
+        <div class="tool-page">
+            <div class="tool-page-header">
+                <div class="tool-page-icon">🛡️</div>
+                <div>
+                    <h1>合规检查小工具</h1>
+                    <p>输入商品描述，一键检测目标市场的常见合规风险点</p>
+                </div>
+            </div>
+
+            <div class="tool-layout">
+                <div class="tool-input">
+                    <h3>商品信息</h3>
+                    
+                    <div class="form-group">
+                        <label>品类</label>
+                        <select id="productCategory" class="form-input">
+                            <option value="electronics">电子产品</option>
+                            <option value="clothing">服装鞋包</option>
+                            <option value="beauty">美妆个护</option>
+                            <option value="home">家居用品</option>
+                            <option value="toys">玩具母婴</option>
+                            <option value="food">食品保健</option>
+                            <option value="jewelry">珠宝饰品</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>商品标题 / 描述 <span class="required">*</span></label>
+                        <textarea id="productDesc" rows="6" placeholder="粘贴商品标题和详情描述..." class="form-input"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>目标市场</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="us" checked>
+                                <span>🇺🇸 美国</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="eu">
+                                <span>🇪🇺 欧盟</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="uk">
+                                <span>🇬🇧 英国</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="jp">
+                                <span>🇯🇵 日本</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>检查项目</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="labeling" checked>
+                                <span>标签合规</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="claims" checked>
+                                <span>宣传宣称</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="safety" checked>
+                                <span>安全标准</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="ip" checked>
+                                <span>知识产权</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary btn-full" onclick="generateCompliance()">
+                        <span class="btn-icon">⚡</span>
+                        开始合规检查
+                    </button>
+                </div>
+
+                <div class="tool-output">
+                    <div class="output-header">
+                        <h3>检查结果</h3>
+                        <div class="output-actions">
+                            <button class="btn-icon-sm" onclick="copyResult('compliance')" title="复制全部">📋</button>
+                            <button class="btn-icon-sm" onclick="regenerateCompliance()" title="重新生成">🔄</button>
+                        </div>
+                    </div>
+
+                    <div id="complianceOutput" class="output-content">
+                        <div class="output-placeholder">
+                            <div class="placeholder-icon">🛡️</div>
+                            <p>输入商品描述，点击"开始合规检查"开始</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
